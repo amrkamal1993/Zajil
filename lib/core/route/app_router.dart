@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zajil/core/route/route_names.dart';
-import 'package:zajil/src/presentation/screens/login_screen.dart';
+import 'package:zajil/src/authentication_module/presentation/screens/home_screen.dart';
+import 'package:zajil/src/authentication_module/presentation/screens/login_screen.dart';
 
 class AppRouter {
   static GoRouter returnRouter() {

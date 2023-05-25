@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:zajil/src/authentication_module/data/models/login_model.dart';
+import 'package:zajil/src/authentication_module/domain/login_user_usecase.dart';
 import 'package:zajil/src/authentication_module/presentation/cubit/login_state.dart';
 
 @injectable
@@ -34,9 +36,10 @@ class LoginUserCubit extends Cubit<LoginUserState> {
 
   loginUser() async {
     emit(const LoginUserState.loading());
+    await Future.delayed(const Duration(seconds: 2));
     final result = await _loginUserUseCase.call(LoginModel(
         userName: userName ?? "", password: password ?? ""));
     emit(result.fold((l) => LoginUserState.error(l),
-            (r) => LoginUserState.onLoginSuccess(r)));
+            (r) => const LoginUserState.onLoginSuccess()));
   }
 }

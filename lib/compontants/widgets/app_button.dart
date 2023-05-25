@@ -39,7 +39,7 @@ class AppButton extends StatelessWidget {
           ),
         ),
         backgroundColor: MaterialStateProperty.all<Color>(
-          isDisabled ? AppColors.disabled : AppColors.text,
+          isDisabled ? AppColors.disabled : Colors.white,
         ),
       ),
       onPressed: isDisabled ? null : onClick,
@@ -48,13 +48,13 @@ class AppButton extends StatelessWidget {
               width: 30,
               height: 30,
               child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
               ),
             )
           : AppText(
               text: text,
               fontSize: 16,
-              textColor: Colors.white),
+              textColor: isDisabled ? Colors.white : AppColors.subtext ),
     );
   }
 }

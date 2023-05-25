@@ -12,8 +12,9 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import '../../src/authentication_module/domain/login_user_usecase.dart' as _i3;
 import '../../src/authentication_module/presentation/cubit/login_cubit.dart'
-    as _i3;
+    as _i4;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -28,6 +29,8 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.factory<_i3.LoginUserCubit>(() => _i3.LoginUserCubit(gh<InvalidType>()));
+  gh.factory<_i3.LoginUserUseCase>(() => _i3.LoginUserUseCase());
+  gh.factory<_i4.LoginUserCubit>(
+      () => _i4.LoginUserCubit(gh<_i3.LoginUserUseCase>()));
   return getIt;
 }
