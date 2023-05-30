@@ -2,27 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zajil/core/route/route_names.dart';
 import 'package:zajil/src/authentication_module/presentation/screens/home_screen.dart';
-import 'package:zajil/src/authentication_module/presentation/screens/login_screen.dart';
 
 class AppRouter {
   static GoRouter returnRouter() {
     GoRouter router = GoRouter(
-      initialLocation: loginPage,
+      initialLocation: homePage,
       routes: [
-        GoRoute(
-          name: 'Login',
-          path: loginPage,
-          builder: (context, state) => const LoginScreen(),
-        ),
+        // GoRoute(
+        //   name: 'Login',
+        //   path: loginPage,
+        //   builder: (context, state) => const LoginScreen(),
+        // ),
         GoRoute(
           name: 'index',
           path: index,
-          builder: (context, state) => const LoginScreen(),
+          builder: (context, state) =>  const HomeScreen(),
         ),
         GoRoute(
           name: 'Home',
           path: homePage,
-          builder: (context, state) => const HomeScreen(),
+          builder: (context, state) =>  const HomeScreen(),
         ),
       ],
     );
